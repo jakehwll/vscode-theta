@@ -1,11 +1,18 @@
 {
   "name": "vscode-theta",
   "displayName": "theta",
-  "description": "",
+  "description": "Syntax highlighting support for theta-idl in Visual Studio Code.",
   "version": "0.0.1",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/jakehwll/vscode-theta"
+  "publisher": "jakehwll",
+  "homepage": "https://github.com/jakehwll/vscode-theta",
+  "repository": "https://github.com/jakehwll/vscode-theta.git",
+  "bugs": {
+    "url": "https://github.com/jakehwll/vscode-theta/issues"
+  },
+  "icon": "static/icon.png",
+  "galleryBanner": {
+    "color": "#000",
+    "theme": "dark"
   },
   "scripts": {
     "publish": "vsce package && vsce publish"
