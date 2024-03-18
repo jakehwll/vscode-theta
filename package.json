@@ -1,0 +1,25 @@
+{
+  "name": "vscode-theta",
+  "displayName": "theta",
+  "description": "",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.87.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "theta",
+      "aliases": ["Theta", "theta"],
+      "extensions": [".theta"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "theta",
+      "scopeName": "source.theta",
+      "path": "./syntaxes/theta.tmLanguage.json"
+    }]
+  }
+}

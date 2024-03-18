@@ -1,0 +1,62 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "Theta",
+  "patterns": [
+    {
+      "include": "#version-keywords"
+    },
+    {
+      "include": "#definition-keywords"
+    },
+    {
+      "include": "#comment"
+    },
+    {
+      "include": "#primitive-types"
+    }
+  ],
+  "repository": {
+    "version-keywords": {
+      "patterns": [
+        {
+          "name": "keyword.control.theta",
+          "match": "^\\b(language-version|avro-version)\\b"
+        }
+      ]
+    },
+    "definition-keywords": {
+      "patterns": [
+        {
+          "name": "keyword.control.theta",
+          "match": "^\\b(import)\\b"
+        },
+        {
+          "name": "entity.name.type",
+          "match": "^\\b(type|alias|enum|data)\\b"
+        }
+      ]
+    },
+    "primitive-types": {
+      "patterns": [
+        {
+          "name": "storage.type.primitive.theta",
+          "match": "\\b(Bool|Bytes|Int|Long|Float|Double|String|Date|Datetime|UUID|Time|LocalDatetime)\\b"
+        }
+      ]
+    },
+    "comment": {
+      "patterns": [
+        {
+          "name": "comment.line.triple-slash.theta",
+          "match": "///.*$"
+        },
+        {
+          "name": "comment.block.theta",
+          "begin": "^/\\**",
+          "end": "\\*/$"
+        }
+      ]
+    }
+  },
+  "scopeName": "source.theta"
+}
