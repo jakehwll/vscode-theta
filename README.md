@@ -3,7 +3,7 @@
 Syntax highlighting support for [`theta-idl`](https://github.com/target/theta-idl) in Visual Studio Code.
 
 > [!NOTE]  
-> This library is heavily a work-in-progress and a largely first-attempt at a language definition in VSCode. Please excuse any underlying issues and raise them!
+> This library is heavily a work-in-progress and a largely first-attempt at a language definition in VSCode. [Please excuse any underlying issues and raise them!](https://github.com/jakehwll/vscode-theta/issues)
 
 ## Definitions
 
