@@ -1,6 +1,6 @@
 # `vscode-theta`
 
-![](https://vsmarketplacebadges.dev/version/jake-hwll.vscode-theta.svg)
+[![](https://vsmarketplacebadges.dev/version/jake-hwll.vscode-theta.svg)](https://marketplace.visualstudio.com/items?itemName=jake-hwll.vscode-theta)
 
 Syntax highlighting support for [`theta-idl`](https://github.com/target/theta-idl) in Visual Studio Code.
 
