@@ -1,5 +1,7 @@
 # `vscode-theta`
 
+![](https://vsmarketplacebadges.dev/version/jake-hwll.vscode-theta.svg)
+
 Syntax highlighting support for [`theta-idl`](https://github.com/target/theta-idl) in Visual Studio Code.
 
 ![vscode-theta Preview](./static/preview.png)
