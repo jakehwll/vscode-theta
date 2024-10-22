@@ -11,9 +11,17 @@ Syntax highlighting support for [`theta-idl`](https://github.com/target/theta-id
 
 ## Quick Start
 
-```
+```sh
+# Get the source code
 git clone git@github.com:jakehwll/vscode-theta.git
+# Open the project in Visual Studio Code
 code vscode-theta
+# Install dependencies
+npm install
+# Compile the extension
+npm run watch
+# Or alternatively,
+# npm run compile
 ```
 
 Within `Visual Studio Code` you can then press `F5` to launch the extension in developer mode.
