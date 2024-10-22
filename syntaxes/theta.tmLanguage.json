@@ -1,62 +1,148 @@
 {
-  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
   "name": "Theta",
+  "scopeName": "source.theta",
+  "fileTypes": [
+    "theta"
+  ],
   "patterns": [
     {
-      "include": "#version-keywords"
+      "include": "#comments"
     },
     {
-      "include": "#definition-keywords"
+      "include": "#keywords"
     },
     {
-      "include": "#comment"
+      "include": "#definitions"
     },
     {
-      "include": "#primitive-types"
+      "include": "#versionConstraints"
+    },
+    {
+      "include": "#types"
+    },
+    {
+      "include": "#fields"
+    },
+    {
+      "include": "#imports"
+    },
+    {
+      "include": "#punctuation"
     }
   ],
   "repository": {
-    "version-keywords": {
+    "comments": {
       "patterns": [
         {
-          "name": "keyword.control.theta",
-          "match": "^\\b(language-version|avro-version)\\b"
-        }
-      ]
-    },
-    "definition-keywords": {
-      "patterns": [
-        {
-          "name": "keyword.control.theta",
-          "match": "^\\b(import)\\b"
+          "match": "//.*$",
+          "name": "comment.line.double-slash.theta"
         },
         {
-          "name": "entity.name.type",
-          "match": "^\\b(type|alias|enum|data)\\b"
-        }
-      ]
-    },
-    "primitive-types": {
-      "patterns": [
-        {
-          "name": "storage.type.primitive.theta",
-          "match": "\\b(Bool|Bytes|Int|Long|Float|Double|String|Date|Datetime|UUID|Time|LocalDatetime)\\b"
-        }
-      ]
-    },
-    "comment": {
-      "patterns": [
-        {
-          "name": "comment.line.triple-slash.theta",
-          "match": "///.*$"
-        },
-        {
+          "begin": "/\\*",
+          "end": "\\*/",
           "name": "comment.block.theta",
-          "begin": "^/\\**",
-          "end": "\\*/$"
+          "patterns": [
+            {
+              "match": "[^*]+",
+              "name": "comment.block.content.theta"
+            }
+          ]
+        },
+        {
+          "match": "///.*$",
+          "name": "comment.line.documentation.theta"
+        },
+        {
+          "begin": "/\\*\\*",
+          "end": "\\*/",
+          "name": "comment.block.documentation.theta"
+        }
+      ]
+    },
+    "keywords": {
+      "patterns": [
+        {
+          "match": "\\b(language-version|avro-version)\\b",
+          "name": "keyword.version.theta"
+        },
+        {
+          "match": "\\b(import|type|alias|enum|data)\\b",
+          "name": "keyword.definition.theta"
+        }
+      ]
+    },
+    "definitions": {
+      "patterns": [
+        {
+          "match": "(type|alias|enum)\\s+([A-Za-z_][\\w]*)",
+          "captures": {
+            "1": {
+              "name": "keyword.definition.theta"
+            },
+            "2": {
+              "name": "entity.name.type.theta"
+            }
+          }
+        }
+      ]
+    },
+    "versionConstraints": {
+      "patterns": [
+        {
+          "match": "(language-version|avro-version)\\s*:\\s*([0-9]+\\.[0-9]+\\.[0-9]+)",
+          "captures": {
+            "1": {
+              "name": "keyword.version.theta"
+            },
+            "2": {
+              "name": "constant.numeric.version.theta"
+            }
+          }
+        }
+      ]
+    },
+    "fields": {
+      "patterns": [
+        {
+          "match": "\\b([A-Za-z_][\\w]*)\\s*:",
+          "captures": {
+            "1": {
+              "name": "variable.other.field.theta"
+            }
+          }
+        }
+      ]
+    },
+    "types": {
+      "patterns": [
+        {
+          "match": "\\b(Bool|Bytes|Int|Long|Float|Double|String|Date|Datetime|UUID|Time|LocalDatetime)\\b",
+          "name": "support.type.primitive.theta"
+        }
+      ]
+    },
+    "imports": {
+      "patterns": [
+        {
+          "match": "(import)\\s+([A-Za-z_][\\w\\.]+)",
+          "captures": {
+            "1": {
+              "name": "keyword.control.import.theta"
+            },
+            "2": {
+              "name": "entity.name.import.theta"
+            }
+          }
+        }
+      ]
+    },
+    "punctuation": {
+      "patterns": [
+        {
+          "match": "[\\{\\}\\[\\]\\(\\)=:|,]",
+          "name": "punctuation.separator.theta"
         }
       ]
     }
-  },
-  "scopeName": "source.theta"
+  }
 }
