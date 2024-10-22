@@ -2,8 +2,8 @@
   "name": "vscode-theta",
   "displayName": "theta",
   "description": "Syntax highlighting support for theta-idl in Visual Studio Code.",
-  "version": "0.0.1",
-  "publisher": "jakehwll",
+  "version": "0.1.0",
+  "publisher": "jake-hwll",
   "homepage": "https://github.com/jakehwll/vscode-theta",
   "repository": "https://github.com/jakehwll/vscode-theta.git",
   "bugs": {
@@ -14,8 +14,11 @@
     "color": "#000",
     "theme": "dark"
   },
+  "main": "./out/extension.js",
   "scripts": {
-    "publish": "vsce package && vsce publish"
+    "publish": "vsce package && vsce publish",
+    "compile": "tsc -p ./",
+    "watch": "tsc -w -p ./"
   },
   "engines": {
     "vscode": "^1.87.0"
@@ -24,6 +27,9 @@
     "Programming Languages"
   ],
   "contributes": {
+    "activationEvents": [
+      "onLanguage:theta"
+    ],
     "languages": [
       {
         "id": "theta",
@@ -43,9 +49,23 @@
         "scopeName": "source.theta",
         "path": "./syntaxes/theta.tmLanguage.json"
       }
+    ],
+    "commands": [
+      {
+        "command": "extension.startLanguageServer",
+        "title": "Theta: Start Language Server"
+      }
     ]
   },
   "devDependencies": {
-    "@vscode/vsce": "^2.24.0"
+    "@types/node": "^22.7.7",
+    "@vscode/vsce": "^2.24.0",
+    "typescript": "^5.6.3",
+    "vscode-languageclient": "^9.0.1",
+    "vscode": "^1.1.37"
+  },
+  "dependencies": {
+    "vscode-languageserver": "^9.0.1",
+    "vscode-languageserver-textdocument": "^1.0.12"
   }
 }
